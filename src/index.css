@@ -1,13 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply bg-[#0094f5] mb-6   text-white font-medium active:opacity-70 rounded-[3px] py-[5px] mt-1.5 border border-transparent text-[14px] leading-[18px];
+  }
+  button:active {
+    @apply opacity-70;
+  }
+  a:active {
+    @apply opacity-60;
+  }
+  .--ring {
+    @apply ring-1 ring-offset-2  rounded-full cursor-pointer;
+  }
+  .--ring-active {
+    @apply ring-2 ring-offset-2  rounded-full cursor-pointer;
+  }
+  .post-settings-modal-item {
+    @apply min-h-[48px] active:bg-[#0000001a] opacity-100  py-1 px-2 border-t !important;
+  }
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+}
+.navbar-flex {
+  flex: 1 0 138px;
+}
+.--main-phone-bg {
+  background-position: -46px 0;
+  background-size: 468.32px 634.15px;
+  flex-basis: 380.32px;
+  height: 581.15px;
+  margin-bottom: 12px;
+  margin-right: 32px;
+  background-image: url(https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png);
+}
+.--main-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.--bg-previous {
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+.--bg-current {
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
+  transition: opacity 2s ease-out;
+}
+.form-span {
+  color: #8e8e8e;
+  font-size: 12px;
+  height: 36px;
+  left: 9px;
+  line-height: 36px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: left;
+  transition: transform ease-out 0.1s;
+  user-select: none;
+}
+.transform-form-span {
+  transform: scale(0.83333) translateY(-10px) translateX(-1.5px);
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.slick-slider {
+  position: relative;
+}
+.slick-disabled {
+  display: none !important;
+}
+.slick-arrow {
+  position: absolute;
+  z-index: 100000;
+  width: 25px;
+  height: 25px;
+}
+.slick-arrow::before {
+  font-size: 27px;
+  border-radius: 50%;
+  opacity: 1;
+  text-shadow: rgba(0, 0, 0, 0.543) 1px 0 10px;
+  color: rgba(0, 0, 0, 0.212);
+}
+.slick-prev {
+  left: 16px;
+}
+
+.slick-next {
+  right: 16px;
+}
+.slick-track + div {
+  margin: 10px;
+}
+
+.border-gradient:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    to right top,
+    #fcdf8f,
+    #fbd377,
+    #fa8e37,
+    #f73344,
+    #c92bb7,
+    #c92bb7,
+    #3051f1
+  );
+  border-radius: 50%;
+}
+.border-none-gradient:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: #e6e6e6;
+  border-radius: 50%;
+}
+.slick-list {
+  display: flex;
+  align-items: center;
+}
+.open-modal {
+  animation-name: scaleDown;
+  font-size: 14px;
+  background-color: white;
+  animation-duration: 0.2s;
+}
+@keyframes scaleDown {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
 }
